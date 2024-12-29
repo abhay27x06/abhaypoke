@@ -3,11 +3,16 @@ import React, { forwardRef, useRef } from 'react'
 const ForwardRef = () => {
     const username = useRef(null);
     const password = useRef(null);
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log(username.current.value);
+        console.log(password.current.value);
+    }
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
     <Input ref={username}/>
     <Input ref={password}/>
-    </div>
+    </form>
   )
 }
 const Input = forwardRef((props, ref)=>{
